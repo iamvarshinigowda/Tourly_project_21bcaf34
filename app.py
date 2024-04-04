@@ -3,6 +3,7 @@ import psycopg2
 
 
 
+
 # Define database connection parameters
 DB_NAME = 'Varshini'
 DB_USER = 'Varshini'
