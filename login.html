@@ -7,17 +7,22 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
             text-align: center;
             margin: 0;
             padding: 0;
+            /* Set background image */
+            background-image: url("file:///D:/tourly/readme-images/Honnavara.jpg");
+            /* Adjust background image properties */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
         }
 
         .login-container {
             max-width: 400px;
             margin: 100px auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.8); /* Added transparency for better visibility */
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
@@ -54,12 +59,28 @@
             <input type="text" id="username" name="username" required>
 
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <!-- Password input with toggle visibility -->
+            <div style="position: relative;">
+                <input type="password" id="password" name="password" required>
+                <span id="togglePassword" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;">Show</span>
+            </div>
 
             <button type="submit">Login</button>
             
-             <button><a href="registrationform.html" class="navbar-link" data-nav-link>signup</a></button>
+            <button><a href="registrationform.html" class="navbar-link" data-nav-link>Signup</a></button>
         </form>
     </div>
+
+    <script>
+        // JavaScript for password visibility toggle
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+
+        togglePassword.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.textContent = type === 'password' ? 'Show' : 'Hide';
+        });
+    </script>
 </body>
 </html>
