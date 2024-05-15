@@ -15,7 +15,7 @@
   <!-- 
     - custom css link
   -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
   <!-- 
     - google font link
@@ -58,7 +58,7 @@
         </a>
 
         <a href="#" class="logo">
-          <img src="./assets/images/logo.svg" alt="Tourly logo">
+          <img src="{{ url_for('static', filename='logo.svg') }}">
         </a>
 
         <div class="header-btn-group">
@@ -108,7 +108,7 @@
           <div class="navbar-top">
 
             <a href="#" class="logo">
-              <img src="./assets/images/logo-blue.svg" alt="Tourly logo">
+              <img src="{{ url_for('static', filename='logo-blue.svg') }}">
             </a>
 
             <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
@@ -124,27 +124,17 @@
             </li>
 
             <li>
-              <a href="#" class="navbar-link" data-nav-link>about us</a>
+              <a href="/submit_feedback" class="navbar-link" data-nav-link>feedback</a>
             </li>
 
             <li>
-              <a href="#destination" class="navbar-link" data-nav-link>destination</a>
-            </li>
-            
-<!--
-            <li>
-              <a href="#package" class="navbar-link" data-nav-link>packages</a>
-            </li>
-
-            <li>
-              <a href="#gallery" class="navbar-link" data-nav-link>gallery</a>
-            </li>
--->
-            <li>
-              <a href="#contact" class="navbar-link" data-nav-link>contact us</a>
+              <a href="/book" class="navbar-link" data-nav-link>destination</a>
             </li>
             <li>
-              <a href="login.html" class="navbar-link" data-nav-link>Login</a>
+              <a href="/contactus" class="navbar-link" data-nav-link>contact us</a>
+            </li>
+            <li>
+              <a href="/login" class="navbar-link" data-nav-link>Login</a>
             </li>
             
 
@@ -166,26 +156,15 @@
   <main>
     <article>
 
-      <!-- 
-        - #HERO
-      -->
-      <!--
-<style>
-    body {
-      background-image: url(readme-images/Shivamogga);
-      background-size: cover; /* Adjust according to your needs */
-      /* Other background properties can be added here */
-    }
-  </style>
--->
+     
 
-<section class="hero" id="home" style="background-image: url('./assets/images/hero.jpg');">
+<section class="hero" id="home" style="background-image: url_for('static', filename='hero-banner.jpg')";>
     <div class="container">
         <h2 class="h1 hero-title">Discover Karnataka</h2>
         <p class="hero-text">Where Heritage Meets Nature, and Every Corner Tells a Story. From Majestic Palaces to Serene Beaches, Uncover the Charms of the Jewel of the Karnataka!</p>
         <div class="btn-group">
             <button class="btn btn-primary">Learn more</button>
-            <button class="btn btn-secondary">Book now</button>
+            <button class="btn btn-secondary"><a href="/destination" >Book now</a></button>
         </div>
     </div>
 </section>
@@ -212,7 +191,7 @@
             </div>
 
             <div class="input-wrapper">
-              <label for="people" class="input-label">Max Number*</label>
+             <label for="people" class="input-label">No.of People*</label>
 
               <input type="number" name="people" id="people" required placeholder="No.of People" class="input-field">
             </div>
@@ -264,7 +243,7 @@
               <div class="popular-card">
 
                 <figure class="card-img">
-                  <img src="readme-images/Coorg.png" alt="San miguel, italy" loading="lazy">
+                  <img src="{{ url_for('static', filename='Coorg.jpg') }}" alt="San miguel, italy" loading="lazy">
                 </figure>
 
                 <div class="card-content">
@@ -298,7 +277,7 @@
               <div class="popular-card">
 
                 <figure class="card-img">
-                  <img src="readme-images/Honnavara.jpg" alt="Burj khalifa, dubai" loading="lazy">
+                  <img src="{{ url_for('static', filename='Honnavara.jpg') }}" loading="lazy">
                 </figure>
 
                 <div class="card-content">
@@ -332,7 +311,7 @@
               <div class="popular-card">
 
                 <figure class="card-img">
-                  <img src="readme-images/Mangalore" alt="Kyoto temple, japan" loading="lazy">
+                  <img src="{{ url_for('static', filename='udupi.jpg') }}"  loading="lazy">
                 </figure>
 
                 <div class="card-content">
@@ -726,7 +705,7 @@
         <div class="footer-brand">
 
           <a href="#" class="logo">
-            <img src="./assets/images/logo.svg" alt="Tourly logo">
+            <img src="{{ url_for('static', filename='logo.svg') }}" alt="Tourly logo">
           </a>
 
           <p class="footer-text">

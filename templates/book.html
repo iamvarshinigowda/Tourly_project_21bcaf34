@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Your Destination</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .container {
+        width: 50%;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    input, select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+<script>
+function calculatePrice() {
+    var destination = document.getElementById("destination").value;
+    var numPeople = document.getElementById("numpeople").value;
+    var pricePerPerson = document.getElementById("destination").options[document.getElementById("destination").selectedIndex].getAttribute("data-price");
+    var totalPrice = parseInt(pricePerPerson) * parseInt(numPeople);
+    document.getElementById("price").value = totalPrice;
+}
+</script>
+</head>
+<body>
+<div class="container">
+    <h2>Book Your Destination</h2>
+    <form id="bookingForm" action="/book" method="POST" onsubmit="calculatePrice()">
+        <label for="destination">Destination:</label>
+        <select id="destination" name="destination" required>
+            <option value="">Select Destination</option>
+            <option value="Coorg" data-price="500">Coorg</option>
+            <option value="Honnavara" data-price="700">Honnavara</option>
+            <option value="Mangaluru" data-price="600">Mangaluru</option>
+        </select>
+        <label for="numpeople">Number of People:</label>
+        <input type="number" id="numpeople" name="numpeople" required>
+        <label for="checkindate">Check-in Date:</label>
+        <input type="date" id="checkindate" name="checkindate" required>
+        <label for="checkoutdate">Checkout Date:</label>
+        <input type="date" id="checkoutdate" name="checkoutdate" required>
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="price" readonly required>
+        <button type="submit">Book Now</button>
+    </form>
+</div>
+</body>
+</html>

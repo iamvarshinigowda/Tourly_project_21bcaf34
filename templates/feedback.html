@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Website Feedback</title>
+</head>
+<body>
+    <h1>Feedback Form</h1>
+    <form action="/feedback" method="post">
+        <label for="namefeedback">Name:</label><br>
+        <input type="text" id="namefeedback" name="namefeedback" required><br><br>
+
+        <label for="rating">Rating:</label><br>
+        <select id="rating" name="rating" required>
+            <option value="5">5 - Excellent</option>
+            <option value="4">4 - Very Good</option>
+            <option value="3">3 - Good</option>
+            <option value="2">2 - Fair</option>
+            <option value="1">1 - Poor</option>
+        </select><br><br>
+
+        <label for="suggestion">Feedback:</label><br>
+        <textarea id="suggestion" name="suggestion" rows="4" required></textarea><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
