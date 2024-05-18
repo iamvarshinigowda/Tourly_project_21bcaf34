@@ -1,0 +1,35 @@
+services:
+  web:
+    build: .
+    command: sh -c "python app.py"
+    ports:
+      - "5050:5000"
+    depends_on:
+      db:
+        condition: service_started
+  db:
+    image: postgres
+    container_name: local_pgdb
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Man_2507
+    volumes:
+      - local_pgdata:/var/lib/postgresql/data
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_containerr
+    restart: always
+    ports:
+      - "8889:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: iamvarshinigowda@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: Man_2507
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+
+volumes:
+  local_pgdata:
+  pgadmin-data:
