@@ -1,13 +1,14 @@
 from flask import Flask, render_template, request, redirect, url_for
 import psycopg2
-
+import os
 app = Flask(__name__)
 
 # PostgreSQL database configuration
-DB_HOST = 'localhost'
-DB_NAME = 'varshini'
-DB_USER = 'varshini'
-DB_PASSWORD = 'Man_4569'
+DB_HOST = 'host.docker.internal'
+DB_NAME = 'Tourly'
+DB_USER = 'postgres'
+DB_PASSWORD = 'Man_2507'
+DB_PORT='5433'
 
 # Connect to PostgreSQL database
 def connect_db():
@@ -16,7 +17,8 @@ def connect_db():
             host=DB_HOST,
             database=DB_NAME,
             user=DB_USER,
-            password=DB_PASSWORD
+            password=DB_PASSWORD,
+            port=DB_PORT
         )
         return conn
     except psycopg2.Error as e:
@@ -204,17 +206,6 @@ def feedback():
     else:
         return "Method not allowed. Please use GET or POST method."
 
-
-if __name__ == "__main__":
-    app.run(debug=True)
-
-
-
-
-
-
-
-
 @app.route('/payment', methods=['GET', 'POST'])
 def payment():
     if request.method == 'POST':
@@ -250,7 +241,7 @@ def payment():
     return render_template('payment.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0',port=5000)
 
 
 
